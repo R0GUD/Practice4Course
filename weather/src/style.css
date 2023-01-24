@@ -1,0 +1,37 @@
+/* body{
+    background: linear-gradient(90deg, rgba(255,171,239,0.9037990196078431) 0%, rgba(141,70,153,1) 35%, rgba(70,0,119,1) 100%);
+}
+img{
+    height: 50px;
+    weight: 50px;
+}
+td{      
+    padding-left: 70px;
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+select{
+    font-size: 30px;
+    font-weight: bold;
+} */
+
+body{
+    background: url("https://abrakadabra.fun/uploads/posts/2022-02/1643877629_2-abrakadabra-fun-p-gorod-sverkhu-risunok-4.jpg");
+    background-size: 1900px 950px;
+    color: yellow;
+}
+img{
+    height: 50px;
+    weight: 50px;
+}
+td{      
+    padding-left: 70px;
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+select{
+    font-size: 30px;
+    font-weight: bold;
+}

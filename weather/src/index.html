@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <select v-model="city" @change="select()">
+            <option value="Zaporizhia">Zaporizhia</option>
+            <option value="Kiev">Kiev</option>
+            <option value="Kharkiv">Kharkiv</option>
+            <option value="Lvov">Lvov</option>
+        </select>
+
+
+        <table v-if="weather">
+            <tr> 
+                <td><img src="https://klike.net/uploads/posts/2021-11/1636099240_2.jpg"></td>
+                <td>Coordination:</td>              
+                <td>[{{weather.coord.lon}};{{weather.coord.lat}}]</td>
+            </tr> 
+            <tr> 
+                <td><img src="https://png.pngtree.com/png-vector/20190820/ourlarge/pngtree-drops-of-water-falling-from-the-sky-is-rain-png-image_1694690.jpg"></td>
+                <td>Humidity:</td>              
+                <td>{{weather.main.humidity}}</td>
+            </tr>
+            <tr> 
+                <td><img src="https://beolin.club/uploads/posts/2022-09/thumbs/1664517700_47-beolin-club-p-termometr-risunok-vkontakte-57.png"></td>
+                <td>Temperature:</td>              
+                <td>{{weather.main.temp}} °C</td>
+            </tr> 
+            <tr> 
+                <td><img :src='"http://openweathermap.org/img/wn/"+weather.weather[0].icon+"@2x.png"'></td>
+                <td>Main:</td>              
+                <td>{{weather.weather[0].main}}</td>
+            </tr>
+            <tr> 
+                <td><img src="https://png.clipart.me/istock/previews/4148/41480102-barometer-weather-change-drawing.jpg"></td>
+                <td>Pressure:</td>              
+                <td>{{weather.main.pressure}}</td>
+            </tr>
+            <tr> 
+                <td><img :src='"http://openweathermap.org/img/wn/"+weather.weather[0].icon+"@2x.png"'></td>
+                <td>Description:</td>              
+                <td>{{weather.weather[0].description}}</td>
+            </tr>
+        </table>
+        
+
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
