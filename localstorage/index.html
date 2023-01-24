@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .app1{
+            height: 500px;
+            background-color: white;
+            color: black;
+        } 
+        .app2{
+            height: 900px;
+            background-color: black;
+            color: white;
+        } 
+    </style>
+
+    <div id="app" class="app1">
+        <button onclick="setStyle()">Включить/выключить темную тему</button> 
+    </div>
+
+    
+
+    <script>
+        const div = document.querySelector('div');
+        style = "app1";
+        localStorage.getItem('style', style);
+
+        function setStyle(){
+            if(style === "app1"){
+                style = "app2";
+            }else{
+                style = "app1";
+            }
+            localStorage.setItem('style', style);
+            div.setAttribute('class',style);
+        }
+
+        
+
+    </script>
+
+</body>
+</html>
