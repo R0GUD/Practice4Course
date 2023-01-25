@@ -1,6 +1,15 @@
+
 <template>
-   <div id="app">
+
+    
+   <div id="app" class="light" v-bind:class="{dark: isDark}">
+    <h1>Всього студентів: {{ studentsCount }}</h1>
+    <br>
+    <button v-on:click="changeTheme()">Change Theme</button>
+    <br>
+    <br>
     <input type="text" name="search" v-model="search"><br>
+    <br>
 		<table class="table table-dark">
 			<tr v-for="item in students"  v-bind:key="item._id"> 
 				<!-- <td>{{item.name}}</td> -->
@@ -30,18 +39,21 @@ import { VueElement } from 'vue';
 
 
 export default {
-data() {
+    data() {
         return {
             students: [],
             search:'',
             student: {name: "", isDonePr: false, group: ""},
             editId: -1,
+            isDark: null,
         }
     },
     mounted: function(){
         axios.get('http://34.82.81.113:3000/students').then((response) => {
             console.log(response.data);
             this.students = response.data;
+            this.$store.commit('setCount', this.students.length);
+            this.isDark = this.$store.getters.getTheme;
         });
     },
     methods: {
@@ -80,6 +92,20 @@ data() {
                 console.log(error);
             });         
         },
+        changeTheme(){
+            if(this.isDark === true) this.isDark = false;
+            else this.isDark = true;
+            this.$store.commit('changeTheme', this.isDark);
+        },
+    },
+    computed: {
+        studentsCount () {
+            return this.$store.getters.getCount;
+        },
+        setTheme () {
+            return this.$store.getters.getTheme;
+        },
     },
 }
  </script>
+
