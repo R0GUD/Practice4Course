@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="app">
+
+        <table>
+            <tr> 
+                <td>Фио особи, що скоїла правопорушення</td>
+                <td><input type="text" v-model="name1"></td>              
+            </tr> 
+            <tr> 
+                <td>Посада</td>
+                <td><input type="text" v-model="job"></td>              
+            </tr>
+            <tr> 
+                <td>Місце роботи</td>
+                <td><input type="text" v-model="place"></td>              
+            </tr>
+            <tr> 
+                <td>Опис ситуації</td>
+                <td><input type="text" v-model="description"></td>              
+            </tr>
+            <tr> 
+                <td><input type="checkbox" v-model="anonim"> aнонімне повідомлення</td>            
+            </tr>
+            <tr v-if="anonim == false"> 
+                <td>Ваше ПІБ</td>
+                <td><input type="text" v-model="name2"></td>              
+            </tr>
+            <tr v-if="anonim == false"> 
+                <td>Номер телефону</td>
+                <td><input type="text" v-model="phone"></td>              
+            </tr>
+            <tr> 
+                <td><button @click="send()">Відправити повідомлення</button></td>             
+            </tr>
+        </table>
+        
+
+    </div>
+    
+    <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+          emailjs.init('<YOUR_PUBLIC_KEY>');
+        })();
+      </script>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
